@@ -14,7 +14,7 @@
       data: {
         labels : [{% for item in labels %}"{{ item }}",{% endfor %}],
           datasets: [{
-            label: "Bite exercises complete per month",
+            label: "Bite exercises completed per month",
             data : [{% for item in values %}{{ item }},{% endfor %}],
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             borderColor: 'rgba(75, 192, 192, 1)',
