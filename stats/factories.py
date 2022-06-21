@@ -12,7 +12,7 @@ class BiteStatFactory(DjangoModelFactory):
     exercise = factory.Faker(
         'random_int',
         min=0,
-        max=32767,
+        max=370,
     )
     completed = factory.Faker(
         'date_between_dates',
