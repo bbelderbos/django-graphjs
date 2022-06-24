@@ -7,7 +7,7 @@ from stats.models import BiteStat
 
 
 def index(request):
-    stats = BiteStat.objects.order_by('completed')
+    stats = BiteStat.objects.order_by("completed")
 
     data_completion_per_month = Counter()
     data_user_level = defaultdict(list)
@@ -22,11 +22,13 @@ def index(request):
     # calculate average from user level stats
     data_average_user_level = defaultdict(int)
     for exercise in data_user_level:
-        avg_val = sum(data_user_level[exercise])/len(data_user_level[exercise])
+        avg_val = sum(data_user_level[exercise]) / len(data_user_level[exercise])
         data_average_user_level[exercise] = avg_val
 
     # unpack dict keys / values into two lists for the average stats
-    labels_avg_user_level, values_avg_user_level = zip(*sorted(data_average_user_level.items()))
+    labels_avg_user_level, values_avg_user_level = zip(
+        *sorted(data_average_user_level.items())
+    )
 
     context = {
         "labels_completion": labels_completion,
